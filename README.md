@@ -2,4 +2,4 @@
 
 ##Homework
 * use the instructions on Firebase to set up hosting for you final project
-* install grunticon into the visualization project using npm
+* install grunticon into the visualization project using npm, read the documentation thoroughly at https://github.com/filamentgroup/grunticon
