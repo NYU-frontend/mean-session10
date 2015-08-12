@@ -42,7 +42,7 @@ nav * {
 		background: #9351a6;
 		position: absolute;
 		bottom: 0;
-		}
+	}
 	.bar:nth-of-type(even){
 		background:#be4c39;
 	}
@@ -88,6 +88,10 @@ form {
 .chart {
 	color: #fff;
 
+}
+
+button[ng-disabled] {
+	background: #999;
 }
 
 

@@ -1,6 +1,7 @@
 module.exports = function(grunt) {
 
 grunt.initConfig({ pkg: grunt.file.readJSON('package.json'),
+
         sass: {
             dist: {
                 options: {
@@ -12,12 +13,27 @@ grunt.initConfig({ pkg: grunt.file.readJSON('package.json'),
                 }
             }
         },
+        svgmin: {
+            options: {
+                plugins: [
+                    { removeViewBox: false },
+                    { removeUselessStrokeAndFill: false }
+                ]
+            },
+            dist: {
+                expand: true,
+                cwd: 'svgicons/raw',
+                src: ['*.svg'],
+                dest: 'svgicons/compressed',
+                ext: '.comp.svg'
+            }
+        },
         watch: {
             options: {
 
             },
             css: {
-                files: ['*.scss'],
+                files: ['css/*.scss'],
                 tasks: ['sass'],
                 options: {
                     spawn: false
@@ -27,9 +43,11 @@ grunt.initConfig({ pkg: grunt.file.readJSON('package.json'),
     });
 
     grunt.loadNpmTasks('grunt-contrib-sass');
+    grunt.loadNpmTasks('grunt-svgmin');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
-    grunt.registerTask('default', ['sass','watch']);
+
+    grunt.registerTask('default', ['sass', 'svgmin', 'watch']);
 
 };
 
